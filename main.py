@@ -41,10 +41,10 @@ class MainWindow(Ui_MainWindow):
         self.deauthlen.clear()
         self.Deauthlist.clear()
         self.deauth_list = []
-        file = open("./data/deauth", "r")
+        file = open("./data/deauth.txt", "r")
         line = file.readline().replace("\n", "")
         while line:
-            self.deauth_list.append(line.upper())
+            self.deauth_list.append(line.lower())
             line = file.readline().replace("\n", "")
         file.close()
         self.deauth_list=set(self.deauth_list)
@@ -55,26 +55,26 @@ class MainWindow(Ui_MainWindow):
     def refresh_white(self):
         self.Whitelist.clear()
         self.white_list = []
-        file = open("./data/whitelist", "r")
+        file = open("./data/whitelist.txt", "r")
         line = file.readline().replace("\n", "")
         while line:
-            self.white_list.append(line.upper())
+            self.white_list.append(line.lower())
             line = file.readline().replace("\n", "")
         file.close()
         self.white_list = set(self.white_list)
         for i in self.white_list:
-            self.Whitelist.addItem(i.upper())
+            self.Whitelist.addItem(i.lower())
 
     def input_white(self):
         input_item = self.Deauthlist.currentItem().text()
         self.deauth_list.remove(input_item)
-        file = open("./data/deauth","w")
+        file = open("./data/deauth.txt","w")
         for i in self.deauth_list:
             file.write(i + "\n")
         file.close()
         self.refresh_deauth()
         if input_item not in self.white_list:
-            file = open("./data/whitelist","a")
+            file = open("./data/whitelist.txt","a")
             file.write(input_item + "\n")
             file.close()
         self.refresh_white()
@@ -82,7 +82,7 @@ class MainWindow(Ui_MainWindow):
     def del_white(self):
         delete_item = self.Whitelist.currentItem().text()
         self.white_list.remove(delete_item)
-        file = open("./data/whitelist", "w")
+        file = open("./data/whitelist.txt", "w")
         for i in self.white_list:
             file.write(i + "\n")
         file.close()
