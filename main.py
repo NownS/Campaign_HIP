@@ -45,9 +45,11 @@ class MainWindow(Ui_MainWindow):
         line = file.readline().replace("\n", "")
         while line:
             self.deauth_list.append(line.upper())
-            self.Deauthlist.addItem(line.upper())
             line = file.readline().replace("\n", "")
         file.close()
+        self.deauth_list=set(self.deauth_list)
+        for i in self.deauth_list:
+            self.Deauthlist.addItem(i)
         self.deauthlen.setText("Deauthenticate "+str(len(self.deauth_list))+" components")
 
     def refresh_white(self):
@@ -57,9 +59,11 @@ class MainWindow(Ui_MainWindow):
         line = file.readline().replace("\n", "")
         while line:
             self.white_list.append(line.upper())
-            self.Whitelist.addItem(line.upper())
             line = file.readline().replace("\n", "")
         file.close()
+        self.white_list = set(self.white_list)
+        for i in self.white_list:
+            self.Whitelist.addItem(i.upper())
 
     def input_white(self):
         input_item = self.Deauthlist.currentItem().text()
@@ -68,10 +72,11 @@ class MainWindow(Ui_MainWindow):
         for i in self.deauth_list:
             file.write(i + "\n")
         file.close()
-        file = open("./data/whitelist","a")
-        file.write(input_item + "\n")
-        file.close()
         self.refresh_deauth()
+        if input_item not in self.white_list:
+            file = open("./data/whitelist","a")
+            file.write(input_item + "\n")
+            file.close()
         self.refresh_white()
 
     def del_white(self):

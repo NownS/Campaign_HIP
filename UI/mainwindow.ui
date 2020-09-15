@@ -35,10 +35,10 @@
    <widget class="QPushButton" name="DelWhite">
     <property name="geometry">
      <rect>
-      <x>373</x>
-      <y>403</y>
-      <width>311</width>
-      <height>34</height>
+      <x>420</x>
+      <y>367</y>
+      <width>350</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="font">
@@ -54,7 +54,7 @@
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>195</y>
+      <y>190</y>
       <width>350</width>
       <height>25</height>
      </rect>
@@ -98,7 +98,7 @@
       <x>30</x>
       <y>60</y>
       <width>370</width>
-      <height>341</height>
+      <height>331</height>
      </rect>
     </property>
     <property name="font">
@@ -201,7 +201,7 @@
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>225</y>
+      <y>220</y>
       <width>350</width>
       <height>30</height>
      </rect>
@@ -251,7 +251,7 @@
       <x>420</x>
       <y>60</y>
       <width>350</width>
-      <height>136</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="font">
@@ -273,9 +273,9 @@
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>260</y>
+      <y>248</y>
       <width>350</width>
-      <height>146</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
