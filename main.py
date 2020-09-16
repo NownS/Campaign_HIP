@@ -67,17 +67,12 @@ class MainWindow(Ui_MainWindow):
 
     def input_white(self):
         input_item = self.Deauthlist.currentItem().text()
-        self.deauth_list.remove(input_item)
-        file = open("./data/deauth.txt","w")
-        for i in self.deauth_list:
-            file.write(i + "\n")
-        file.close()
-        self.refresh_deauth()
         if input_item not in self.white_list:
             file = open("./data/whitelist.txt","a")
             file.write(input_item + "\n")
             file.close()
         self.refresh_white()
+        self.refresh_deauth()
 
     def del_white(self):
         delete_item = self.Whitelist.currentItem().text()
